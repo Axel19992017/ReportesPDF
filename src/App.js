@@ -1,32 +1,56 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import { Page, Text, View, Document, StyleSheet, Image } from '@react-pdf/renderer';
+import { PDFViewer } from '@react-pdf/renderer';
+
+
 import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0);
-  useEffect(() =>{
-    document.title = "Le ha dado click " + count + " veces.";
-    return () =>{
-      console.log("desmontando...");
+const styles = StyleSheet.create({
+    page: {
+      flexDirection: 'col',
+      backgroundColor: 'white'
+    },
+    encabezado: {
+      marginTop: 0,
+      padding: 0,
+      backgroundColor: '#67b7be',
+      opacity: '0.5'
+    },
+    imagenEncabezado: {
+        width: '70%',
+        height:'auto',
+        opacity:'1'
+    },
+    imagenFondo:{
+        background: "url('https://i.ibb.co/1QfZkMh/marca-Agua.jpg')"
     }
-  },[count]);
+  });
+    //https://i.ibb.co/8sMykMq/IMG-20200302-WA0027.jpg
+//https://i.ibb.co/j48kMht/MEMBRETE-07.png
+  const MyDocument = () => (
+    <Document>
+      <Page size="A4" style={styles.page}>
+        <View style={styles.encabezado}>
+        <Image style={styles.imagenEncabezado} src="https://i.ibb.co/rvw9WtJ/encabezado.jpg"/>
+        </View>
+        <View style={styles.imagenFondo}>
+        <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti eos reiciendis hic magni laboriosam, eum, illo nam nulla sint neque cumque ipsam facilis exercitationem non rem consectetur porro earum optio.</Text>
+        </View>
+      </Page>
+    </Document>
+  );
+  
+
+
+function App() {
+var alto = window.innerHeight;
+var ancho = window.innerWidth;
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload. {count}
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <button onClick={() => setCount(count+1)}>Aqui :D</button>
-      </header>
+        <PDFViewer width={ancho+'px'} height={alto+'px'}>
+            <MyDocument />
+        </PDFViewer>
+      
     </div>
   );
 }
