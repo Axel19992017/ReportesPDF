@@ -1,0 +1,13 @@
+{
+    "hematocrit" :"EstandarMujer", 
+    "hemoglobin" :"EstandarMujer", 
+    "leukocytes" :"EstandarMujer", 
+    "erythrocytes" :"EstandarMujer", 
+    "platelets" :"EstandarMujer", 
+    "segmented" :"EstandarMujer", 
+    "lymphocytes" :"EstandarMujer", 
+    "monocytes" :"EstandarMujer", 
+    "basophilic" :"EstandarMujer", 
+    "eosinophils" :"EstandarMujer", 
+    "total" :"EstandarMujer"
+}

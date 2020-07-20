@@ -1,0 +1,13 @@
+{
+    "hematocrit" :"EstandarHombre", 
+    "hemoglobin" :"EstandarHombre", 
+    "leukocytes" :"EstandarHombre", 
+    "erythrocytes" :"EstandarHombre", 
+    "platelets" :"EstandarHombre", 
+    "segmented" :"EstandarHombre", 
+    "lymphocytes" :"EstandarHombre", 
+    "monocytes" :"EstandarHombre", 
+    "basophilic" :"EstandarHombre", 
+    "eosinophils" :"EstandarHombre", 
+    "total" :"EstandarHombre"
+}
