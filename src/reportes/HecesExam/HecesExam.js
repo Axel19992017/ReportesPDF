@@ -20,12 +20,12 @@ const styles = StyleSheet.create({
     },
     filaEncabezado: {
         flexDirection: 'row',
-        justifyContent:'space-between',
+        justifyContent:'space-around',
         borderBottom: '1px'
     },
     fila: {
         flexDirection: 'row',
-        justifyContent:'space-between'
+        justifyContent:'space-around'
     },
     content:{
         margin: 5,
@@ -39,7 +39,6 @@ const Lista = datosExamen.map((fila) =>
 <View style={styles.fila}>
     <Text>{fila[0].padEnd(20,' ')}</Text>
     <Text>{fila[1]}</Text>
-    <Text>None</Text>
 </View>
 );
 
@@ -50,7 +49,6 @@ const ViewExamenHeces = () =>(
         <View style={styles.filaEncabezado}>
             <Text>Examen</Text>
             <Text>Resultados</Text>
-            <Text>Valores de referencia</Text>
         </View>
         {Lista}
     </View>

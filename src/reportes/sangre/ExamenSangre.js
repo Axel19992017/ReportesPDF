@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Page, Text, View, Document, StyleSheet, Image, Font } from '@react-pdf/renderer';
 import { PDFViewer } from '@react-pdf/renderer';
 import exSangreObject from './examenSangre.json'
-import exSangreHombreEstandar from './SangreHombreEstandar.json'
 import robotoFont from '../font/RobotoMono-VariableFont_wght.ttf'
 import DatosGenerales from '../Template'
 import Serologia from '../Serologia'
@@ -21,12 +20,12 @@ const styles = StyleSheet.create({
     },
     filaEncabezado: {
         flexDirection: 'row',
-        justifyContent:'space-between',
+        justifyContent:'space-around',
         borderBottom: '1px'
     },
     fila: {
         flexDirection: 'row',
-        justifyContent:'space-between'
+        justifyContent:'space-around'
     },
     content:{
         margin: 5,
@@ -40,7 +39,6 @@ const ListaSangre = datosExamen.map((fila) =>
 <View style={styles.fila}>
     <Text>{fila[0].padEnd(15,' ')}</Text>
     <Text>{fila[1]}</Text>
-    <Text>100</Text>
 </View>
 );
 
@@ -51,7 +49,6 @@ const ViewExamenSangre = () =>(
         <View style={styles.filaEncabezado}>
             <Text>Examen</Text>
             <Text>Resultados</Text>
-            <Text>Valores de referencia</Text>
         </View>
         {ListaSangre}
     </View>
