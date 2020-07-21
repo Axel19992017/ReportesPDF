@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Page, Text, View, Document, StyleSheet, Image, Font } from '@react-pdf/renderer';
 import { PDFViewer } from '@react-pdf/renderer';
-import exUrineObject from './UrineExamData.json'
+import exHecesObject from './HecesExamData.json'
 import robotoFont from '../font/RobotoMono-VariableFont_wght.ttf'
 import DatosGenerales from '../Template'
 import Serologia from '../Serologia'
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     }
 });
 
-const datosExamen = Object.entries(exUrineObject);
+const datosExamen = Object.entries(exHecesObject);
 
 const Lista = datosExamen.map((fila) =>
 <View style={styles.fila}>
@@ -43,9 +43,9 @@ const Lista = datosExamen.map((fila) =>
 </View>
 );
 
-const ViewExamenOrina = () =>(
+const ViewExamenHeces = () =>(
 <View style={styles.content}>
-    <Text style={styles.titulo}>Examen de Orina</Text>
+    <Text style={styles.titulo}>Examen de Heces</Text>
     <View style={styles.tabla}>
         <View style={styles.filaEncabezado}>
             <Text>Examen</Text>
@@ -57,15 +57,13 @@ const ViewExamenOrina = () =>(
 </View>
 );
 
-function examenOrina(){
+function examenHeces(){
    return( 
    <PDFViewer width={'100%'} height={'100%'}>
    <Document>
         <DatosGenerales>
-			<ViewExamenOrina/>
+			<ViewExamenHeces/>
             
-        </DatosGenerales>
-        <DatosGenerales>
             <Serologia vdrl="undefined gg" factor_rematoideo="me too gg"/>
             <Bactereologia exudado="nani?" coprocultivo="help me" hisopado_manos="test"/>
             <Basiloscopia baar="te quedan 3 semanas de vida"/>
@@ -75,4 +73,4 @@ function examenOrina(){
     )
 }
 
-export default examenOrina;
+export default examenHeces;
