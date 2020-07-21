@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
 
 const ViewExamenBactereologia = (props) =>(
 <View style={styles.content}>
-    <Text style={styles.titulo}>Bactereologia</Text>
+    <Text style={styles.titulo}>Bactereología</Text>
     <View style={styles.tabla}>
         <View style={styles.filaEncabezado}>
             <Text>Exudado Faringeo</Text>
@@ -45,6 +45,5 @@ const ViewExamenBactereologia = (props) =>(
     </View>
 </View>
 );
-
 
 export default ViewExamenBactereologia;

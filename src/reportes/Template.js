@@ -2,10 +2,12 @@ import React from 'react';
 import { Page, Text, View, Document, StyleSheet, Image, Font } from '@react-pdf/renderer';
 import clienteObject from './cliente.json'
 import robotoFont from './font/RobotoMono-VariableFont_wght.ttf'
+import latoFont from './font/Lato-Regular.ttf'
 //https://styled-components.com/docs/basics#getting-started
 import './Template.css';
 
 Font.register({family: 'Roboto', src :robotoFont})
+Font.register({family: 'Lato', src :latoFont})
 const styles = StyleSheet.create({
     page: {
       flexDirection: 'col',
@@ -35,6 +37,21 @@ const styles = StyleSheet.create({
     titulo:{
       fontSize: '16px',
       borderBottom: '2px'
+    },
+    footer:{
+      position: 'absolute',
+      borderTop	: '5px',
+      borderTopColor: '#5BBBCC',
+      backgroundColor: '#002F49',
+      top: '800px',
+      height: '40px',
+      width: '100%'
+    },
+    footerText:{
+      color: 'white',
+      fontFamily: 'Lato',
+      fontSize: '10px',
+      textAlign: 'center'
     }
   });
 
@@ -59,6 +76,10 @@ const styles = StyleSheet.create({
           </View>
         </View>
 		{children}
+        </View>
+        <View style={styles.footer}>
+        <Text style={styles.footerText}>Dirección: Villa Fontana Sur, de los semáforos del Club Terraza 2c. al este y 2c. al sur. Casa esquinera mano derecha</Text>
+      <Text style={styles.footerText}>Telefóno: 2227-0727 / 2270-6273 / 7825-8881 / 8887-1982 Correo Electrónico: labclinico.finlay@gmail.com</Text>
         </View>
         </Page>
     

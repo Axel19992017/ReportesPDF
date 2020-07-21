@@ -57,10 +57,10 @@ const ViewExamenOrina = () =>(
 </View>
 );
 
-function examenOrina(){
+function ExamenOrina(){
    return( 
-   <PDFViewer width={'100%'} height={'100%'}>
-   <Document>
+   
+   <Document title="Examen de Orina" author="FinLays">
         <DatosGenerales>
 			<ViewExamenOrina/>
             
@@ -71,8 +71,23 @@ function examenOrina(){
             <Basiloscopia baar="te quedan 3 semanas de vida"/>
         </DatosGenerales>
     </Document>
-    </PDFViewer>
+    
     )
-}
 
-export default examenOrina;
+}
+function ExamenOrinaBasic(){
+    return( 
+    
+    <Document title="Examen de Orina" author="FinLays">
+         <DatosGenerales>
+             <ViewExamenOrina/>
+         </DatosGenerales>
+     </Document>
+     
+     )
+ 
+ }
+
+
+
+export {ExamenOrina, ExamenOrinaBasic };

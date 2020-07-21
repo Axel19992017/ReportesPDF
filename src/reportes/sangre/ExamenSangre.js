@@ -58,17 +58,30 @@ const ViewExamenSangre = () =>(
 </View>
 );
 
-function examenSangre(){
+function ExamenSangre(){
    return( 
-   <PDFViewer width={'100%'} height={'100%'}>
+   
+   <Document title="Examen de Sangre" author="FinLays">
         <DatosGenerales>
 			<ViewExamenSangre/>
             <Serologia vdrl="undefined gg" factor_rematoideo="me too gg"/>
             <Bactereologia exudado="nani?" coprocultivo="help me" hisopado_manos="test"/>
             <Basiloscopia baar="te quedan 3 semanas de vida"/>
         </DatosGenerales>
-    </PDFViewer>
+    </Document>
+    
     )
 }
+function ExamenSangreBasic(){
+    return( 
+    
+    <Document title="Examen de Sangre" author="FinLays">
+         <DatosGenerales>
+             <ViewExamenSangre/>
+         </DatosGenerales>
+     </Document>
+     
+     )
+ }
 
-export default examenSangre;
+export {ExamenSangre, ExamenSangreBasic};

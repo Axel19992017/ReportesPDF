@@ -57,10 +57,10 @@ const ViewExamenHeces = () =>(
 </View>
 );
 
-function examenHeces(){
+function ExamenHeces(){
    return( 
-   <PDFViewer width={'100%'} height={'100%'}>
-   <Document>
+   
+   <Document title="Examen de Heces" author="FinLays"> 
         <DatosGenerales>
 			<ViewExamenHeces/>
             
@@ -69,8 +69,19 @@ function examenHeces(){
             <Basiloscopia baar="te quedan 3 semanas de vida"/>
         </DatosGenerales>
     </Document>
-    </PDFViewer>
+    
     )
 }
+function ExamenHecesBasic(){
+    return( 
+    
+    <Document title="Examen de Heces" author="FinLays"> 
+         <DatosGenerales>
+             <ViewExamenHeces/>
+         </DatosGenerales>
+     </Document>
+     
+     )
+ }
 
-export default examenHeces;
+export {ExamenHeces, ExamenHecesBasic};
