@@ -52,6 +52,25 @@ const styles = StyleSheet.create({
       fontFamily: 'Lato',
       fontSize: '10px',
       textAlign: 'center'
+    },
+    firma:{
+      flexDirection: 'column',
+      justifyContent:'center'
+    },
+    firmaTexto:{
+      marginHorizontal: '200px',
+      fontFamily: 'Lato',
+      fontSize: '15px',
+      color: '#283342',
+      borderTop: '2px',
+      borderColor: '#283342',
+      textAlign: 'center'
+    },
+    firmaTextoSmall:{
+      color: '#283342',
+      fontFamily: 'Lato',
+      fontSize: '10px',
+      textAlign: 'center'
     }
   });
 
@@ -76,6 +95,11 @@ const styles = StyleSheet.create({
           </View>
         </View>
 		{children}
+        </View>
+        <View style={styles.firma}>
+        <Text style={styles.firmaTexto}>Lic. Ligia Orozco Logo</Text>
+        <Text style={styles.firmaTextoSmall}>Bióloga - Microbiologa</Text>
+        <Text style={styles.firmaTextoSmall}>Cod. MINSA: 30991</Text>
         </View>
         <View style={styles.footer}>
         <Text style={styles.footerText}>Dirección: Villa Fontana Sur, de los semáforos del Club Terraza 2c. al este y 2c. al sur. Casa esquinera mano derecha</Text>

@@ -10,6 +10,7 @@ body {
     bottom: 0;
     height: 100vh;
     width: 100%;
+    margin: 15px;
     /*https://www.espai.es/blog/2017/02/height-100-css/*/
   }
   
@@ -20,4 +21,13 @@ body {
   #root{
     height: 100%;
     width: 100%;
+  }
+  .enlace{
+    width: 400px;
+    height: 30px;
+    text-align: center;
+    color: blue;
+    padding: 5px;
+    margin: 5px;
+    background-color: cyan;
   }
