@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Page, Text, View, Document, StyleSheet, Image, Font } from '@react-pdf/renderer';
+import React from 'react';
+import { Text, View, StyleSheet, Font } from '@react-pdf/renderer';
 import robotoFont from './font/RobotoMono-VariableFont_wght.ttf'
 
 Font.register({family: 'Roboto', src :robotoFont})

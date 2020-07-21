@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { PDFDownloadLink, Document, Page } from '@react-pdf/renderer';
+import { PDFDownloadLink } from '@react-pdf/renderer';
 import {ExamenSangre, ExamenSangreBasic} from './reportes/sangre/ExamenSangre';
 import {ExamenOrina, ExamenOrinaBasic} from './reportes/UrineExam/UrineExam';
 import {ExamenHeces, ExamenHecesBasic} from './reportes/HecesExam/HecesExam';

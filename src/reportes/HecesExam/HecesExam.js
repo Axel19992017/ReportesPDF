@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Page, Text, View, Document, StyleSheet, Image, Font } from '@react-pdf/renderer';
-import { PDFViewer } from '@react-pdf/renderer';
+import React from 'react';
+import { Text, View, Document, StyleSheet, Font } from '@react-pdf/renderer';
 import exHecesObject from './HecesExamData.json'
 import robotoFont from '../font/RobotoMono-VariableFont_wght.ttf'
 import DatosGenerales from '../Template'

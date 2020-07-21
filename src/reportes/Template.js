@@ -1,5 +1,5 @@
 import React from 'react';
-import { Page, Text, View, Document, StyleSheet, Image, Font } from '@react-pdf/renderer';
+import { Page, Text, View, StyleSheet, Image, Font } from '@react-pdf/renderer';
 import clienteObject from './cliente.json'
 import robotoFont from './font/RobotoMono-VariableFont_wght.ttf'
 import latoFont from './font/Lato-Regular.ttf'
