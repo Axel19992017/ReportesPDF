@@ -2,6 +2,7 @@
   "name": "practica",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://axel19992017.github.io/ReportesPDF/",
   "dependencies": {
     "@react-pdf/renderer": "^2.0.0-beta.6",
     "@react-pdf/styled-components": "^1.4.0",
@@ -16,7 +17,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,6 +37,7 @@
     ]
   },
   "devDependencies": {
-    "eslint-plugin-react-hooks": "^4.0.7"
+    "eslint-plugin-react-hooks": "^4.0.7",
+    "gh-pages": "^3.1.0"
   }
 }
