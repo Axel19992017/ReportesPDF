@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { PDFDownloadLink } from '@react-pdf/renderer';
+import { Page, Text, View, Document, StyleSheet, PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
 import {ExamenSangre, ExamenSangreBasic} from './reportes/sangre/ExamenSangre';
 import {ExamenOrina, ExamenOrinaBasic} from './reportes/UrineExam/UrineExam';
 import {ExamenHeces, ExamenHecesBasic} from './reportes/HecesExam/HecesExam';
 import * as serviceWorker from './serviceWorker';
-
+const ExamenSangreV =()=> (
+    <PDFViewer width={'100%'} height={'100%'}>
+        <ExamenSangre/>
+    </PDFViewer>
+)
 const App = () =>(
   <div>
     <div className="enlace">
@@ -43,11 +47,39 @@ const App = () =>(
   </div>
   
 )
+const styles = StyleSheet.create({
+    page: {
+        flexDirection: 'row',
+        backgroundColor: '#E4E4E4'
+    },
+    section: {
+        margin: 10,
+        padding: 10,
+        flexGrow: 1
+    }
+});
 
-
+// Create Document Component
+const MyDocument = () => (
+    <Document>
+        <Page size="A4" style={styles.page}>
+            <View style={styles.section}>
+                <Text>Section #1</Text>
+            </View>
+            <View style={styles.section}>
+                <Text>Section #2</Text>
+            </View>
+        </Page>
+    </Document>
+);
+const AppTest = () => (
+    <PDFViewer width={'100%'} height={'100%'}>
+        <MyDocument />
+    </PDFViewer>
+);
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ExamenSangreV />
   </React.StrictMode>,
   document.getElementById('root')
 );
