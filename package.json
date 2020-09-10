@@ -4,14 +4,16 @@
   "private": true,
   "homepage": "https://axel19992017.github.io/ReportesPDF/",
   "dependencies": {
-    "@react-pdf/renderer": "^2.0.0-beta.6",
+    "@react-pdf/renderer": "^2.0.0-beta.14",
     "@react-pdf/styled-components": "^1.4.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "eslint-config-react-app": "^5.2.1",
+    "pdfkit": "^0.11.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "^3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",

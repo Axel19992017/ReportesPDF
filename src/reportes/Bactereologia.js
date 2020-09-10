@@ -1,8 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet, Font } from '@react-pdf/renderer';
-import robotoFont from './font/RobotoMono-VariableFont_wght.ttf'
 
-Font.register({family: 'Roboto', src :robotoFont})
 const styles = StyleSheet.create({
     titulo:{
         fontSize: '16px',

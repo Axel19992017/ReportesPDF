@@ -1,17 +1,11 @@
 import React from 'react';
 import { Page, Text, View, StyleSheet, Image, Font } from '@react-pdf/renderer';
 import clienteObject from './cliente.json'
-import robotoFont from './font/RobotoMono-VariableFont_wght.ttf'
-import latoFont from './font/Lato-Regular.ttf'
 //https://styled-components.com/docs/basics#getting-started
 import './Template.css';
-
-Font.register({family: 'Roboto', src :robotoFont})
-Font.register({family: 'Lato', src :latoFont})
 const styles = StyleSheet.create({
     page: {
       flexDirection: 'col',
-      fontFamily: 'Roboto',
       fontSize:'12px',
       color: '#283342'
     },
@@ -49,7 +43,7 @@ const styles = StyleSheet.create({
     },
     footerText:{
       color: 'white',
-      fontFamily: 'Lato',
+      
       fontSize: '10px',
       textAlign: 'center'
     },
@@ -59,7 +53,7 @@ const styles = StyleSheet.create({
     },
     firmaTexto:{
       marginHorizontal: '200px',
-      fontFamily: 'Lato',
+      
       fontSize: '15px',
       color: '#283342',
       borderTop: '2px',
@@ -68,7 +62,7 @@ const styles = StyleSheet.create({
     },
     firmaTextoSmall:{
       color: '#283342',
-      fontFamily: 'Lato',
+      
       fontSize: '10px',
       textAlign: 'center'
     }

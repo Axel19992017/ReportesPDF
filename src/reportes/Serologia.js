@@ -1,8 +1,6 @@
 import React from 'react';
 import {Text, View, StyleSheet, Font } from '@react-pdf/renderer';
-import robotoFont from './font/RobotoMono-VariableFont_wght.ttf'
 
-Font.register({family: 'Roboto', src :robotoFont})
 const styles = StyleSheet.create({
     titulo:{
         fontSize: '16px',
@@ -25,7 +23,14 @@ const styles = StyleSheet.create({
         padding: 5
     }
 });
+/**
+ preguntas[0] = new Pregunta("¿Que es el pecado?", "Mt16,24");
+ preguntas[1] = new Pregunta("¿Que es la latría?", "Ap3,20");
+ preguntas[3] = new Pregunta("¿Que es el hiperdulía?", "Mt16,24");
+ preguntas[4] = new Pregunta("¿Que es el consubstancación?", "Lc1,1");
 
+  
+ * **/
 
 const ViewExamenSerologia = (props) =>(
 <View style={styles.content}>
