@@ -100,6 +100,7 @@ const styles = StyleSheet.create({
       <Text style={styles.footerText}>Telefóno: 2227-0727 / 2270-6273 / 7825-8881 / 8887-1982 Correo Electrónico: labclinico.finlay@gmail.com</Text>
         </View>
         </Page>
+        
     
   );
   
