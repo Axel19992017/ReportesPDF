@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 
-import { Text, View, Document, StyleSheet, Canvas } from "@react-pdf/renderer";
-import exSangreObject from "./examenSangre.json";
-import DatosGenerales from "../Template";
+import { Text, View, StyleSheet } from "@react-pdf/renderer";
+
 
 const styles = StyleSheet.create({
   content: {
@@ -37,6 +36,10 @@ const styles = StyleSheet.create({
   part: {
     margin: "5px",
   },
+  fila: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
 });
 
 const DataAudiometry = ({ values }) => {
@@ -58,9 +61,10 @@ const DataAudiometry = ({ values }) => {
       setItemData(values.filter((e) => e.name === name)[0]);
     }, []);
     return (
-      <Text>
-        {itemData.name} - {itemData.value ? "SI" : "NO"}
-      </Text>
+      <View style={styles.fila}>
+      <Text>{itemData.name.padEnd(20, " ")}</Text>
+      <Text>{itemData.value ? "SI" : "NO"}</Text>
+    </View>
     );
   };
   const ItemPart2 = ({ name }) => {
@@ -72,9 +76,10 @@ const DataAudiometry = ({ values }) => {
       setItemData(values.filter((e) => e.name === name)[0]);
     }, []);
     return (
-      <Text>
-        {itemData.name} : {itemData.value}
-      </Text>
+      <View style={styles.fila}>
+        <Text>{itemData.name.padEnd(15, " ")}</Text>
+        <Text>{itemData.value}</Text>
+      </View>
     );
   };
   return (

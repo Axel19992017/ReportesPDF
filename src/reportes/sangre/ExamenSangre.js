@@ -1,11 +1,10 @@
 import React from "react";
 import { Text, View, Document, StyleSheet, Canvas } from "@react-pdf/renderer";
 import exSangreObject from "./examenSangre.json";
-import { useEffect } from "react-dom";
 import DatosGenerales from "../Template";
 import FichaMedica from "./FichaMédica";
 import jsonEmulated from "./audiometria.json";
-import Tabla from "../Bactereologia";
+import jsonEmulated2 from "./fichaMedica.json";
 import DataAudiometry from "./DataAudiometry";
 //https://styled-components.com/docs/basics#getting-started
 
@@ -165,7 +164,6 @@ const ViewCanvas = ({ valores }) => {
   };
   const paintGrafica1 = (painter, coords) => {
     const tempPoints = [];
-    const pointZero = { x: 20, y: 40 };
     const dimension = { x: 20, y: 20 };
 
     const x = [0, 125, 500, 750, 1000, 1500, 2000, 3000, 4000, 6000, 8000];
@@ -227,8 +225,6 @@ const ViewCanvas = ({ valores }) => {
     let dimension = { x: 40, y: 40 }; // varía (x,y) = (40,20),(20,40),(20,20), (40,40)
     const x = [-500, -400, -200, 0, 200];
     const y = [-0.5, 0.0, 1.0, 1.5];
-    let puntoXPrev = 0,
-      puntoYPrev = 0;
     for (let index = 0; index < coords.ejeX.length; index++) {
       let puntoX, puntoY;
 
@@ -318,6 +314,7 @@ const ViewCanvas = ({ valores }) => {
 function ExamenSangre() {
   return (
     <Document title="Examen de Sangre" author="FinLays">
+     {/*}
       <DatosGenerales values={jsonEmulated}>
         <DataAudiometry values={jsonEmulated.result} />
       </DatosGenerales>
@@ -325,11 +322,11 @@ function ExamenSangre() {
       <DatosGenerales ficha={true}>
         <ViewCanvas valores={jsonEmulated} />
       </DatosGenerales>
-         {/*}
+       {*/}  
       <DatosGenerales>
-        <FichaMedica />
+        <FichaMedica values={jsonEmulated2.results}/>
       </DatosGenerales>
-{*/}
+
     </Document>
   );
 }
