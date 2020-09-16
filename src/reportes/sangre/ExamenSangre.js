@@ -72,11 +72,6 @@ const ViewExamenSangre = () => (
 //
 
 const ViewCanvas = ({ valores }) => {
-  const pointZero = { x: 20, y: 40 };
-  const dimension = { x: 20, y: 20 };
-  const x = [0, 125, 500, 750, 1000, 1500, 2000, 3000, 4000, 6000, 8000];
-  const y = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120];
-
   const initGrafica = (painter, texto) => {
     painter
       .polygon([0, 0], [240, 0], [240, 20], [0, 20]) // encabezado
@@ -169,6 +164,11 @@ const ViewCanvas = ({ valores }) => {
   };
   const paintGrafica1 = (painter, coords) => {
     const tempPoints = [];
+    const pointZero = { x: 20, y: 40 };
+    const dimension = { x: 20, y: 20 };
+
+    const x = [0, 125, 500, 750, 1000, 1500, 2000, 3000, 4000, 6000, 8000];
+    const y = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120];
 
     for (let index = 0; index < coords.ejeX.length; index++) {
       let puntoX, puntoY;
@@ -194,25 +194,89 @@ const ViewCanvas = ({ valores }) => {
             puntoY =
               (dimension.y * (coords.ejeY[index] - y[i - 1])) /
                 (y[i] - y[i - 1]) +
-              i * dimension.y ;
+              i * dimension.y;
             break C;
           }
         }
       }
-      tempPoints.push({ x: puntoX, y: puntoY });
+      tempPoints.push({ x: puntoX, y: puntoY + 20 });
     }
     tempPoints.map((key) => {
       // funciona pero no sé porque (debería de dar error)
-      painter.circle(key.x, key.y + 20, 3).fill("black", "#900").stroke();
+      painter.circle(key.x, key.y, 3).fill("black", "#900").stroke();
     });
-    painter.moveTo(tempPoints[0].x, tempPoints[0].y);
-    console.log(tempPoints);
-    for (let index = 1; index < tempPoints.length; index++) {
-      
-      painter.quadraticCurveTo( tempPoints[index].x,  tempPoints[index].y).stroke();
-    }
 
-    
+    painter
+      .moveTo(tempPoints[0].x, tempPoints[0].y)
+      .lineTo(tempPoints[1].x, tempPoints[1].y)
+      .dash(30, { space: 0 })
+      .stroke();
+    for (let index = 0; index < tempPoints.length - 1; index++) {
+      painter
+        .moveTo(tempPoints[index].x, tempPoints[index].y)
+        .lineTo(tempPoints[index + 1].x, tempPoints[index + 1].y)
+        .dash(30, { space: 0 })
+        .stroke();
+    }
+  };
+
+  const paintGrafica2 = (painter, coords) => {
+    const tempPoints = [];
+    const pointZero = { x: 50, y: 120 };
+    let dimension = { x: 40, y: 40 }; // varía (x,y) = (40,20),(20,40),(20,20), (40,40)
+    const x = [-500, -400, -200, 0, 200];
+    const y = [-0.5, 0.0, 1.0, 1.5];
+    let puntoXPrev = 0, puntoYPrev = 0;
+    for (let index = 0; index < coords.ejeX.length; index++) {
+      let puntoX, puntoY;
+      
+
+      if (coords.ejeX[index] <= 0 && coords.ejeY[index] <= 0) {
+        dimension = { x: 20, y: 20 };
+      } else if (coords.ejeY[index] <= 0) {
+        dimension = { x: 40, y: 20 };
+      } else if (coords.ejeX[index] <= -400) {
+        dimension = { x: 20, y: 40 };
+      }else{
+        dimension = { x: 40, y: 40 };
+      }
+      // obteniendo coord x del canvas
+     B: for (let i = 0; i < x.length; i++) {
+        if (coords.ejeX[index] <= x[i]) {
+          if(i === 0){
+            puntoX = 0;
+          }else{
+            puntoX = (Math.abs(dimension.x * (coords.ejeX[index] - x[i - 1])) / (x[i] - x[i - 1]));
+            puntoX += i > 1 ? 20 + 40 * (i-2): 0;
+           break B;
+          }
+        }
+      }
+      A: for (let i = 0; i < y.length; i++) {
+        if (coords.ejeY[index] <= y[i]) {
+          if(i === 0){
+            puntoY = 0
+          }else{
+            puntoY = (Math.abs(dimension.y * (coords.ejeY[index] - y[i - 1])) / (y[i] - y[i - 1]));
+            puntoY += i > 1 ? 20 + 40 * (i-2): 0;
+          break A;
+          }
+        }
+      }
+      console.log(dimension)
+      tempPoints.push({ x: puntoX +pointZero.x, y:   pointZero.y- puntoY });
+    } 
+    tempPoints.map((key) => {
+      painter.circle(key.x, key.y, 3).fill("black", "#900").stroke();
+    });
+
+    for (let index = 0; index < tempPoints.length - 1; index++) {
+      painter
+        .moveTo(tempPoints[index].x, tempPoints[index].y)
+        .lineTo(tempPoints[index + 1].x, tempPoints[index + 1].y)
+        .dash(30, { space: 0 })
+        .stroke();
+    }
   };
   const drawOidoI = (painter, ancho, alto) => {
     initGrafica(painter, "Oído izquierdo");
@@ -224,9 +288,11 @@ const ViewCanvas = ({ valores }) => {
   };
   const drawTimpanoI = (painter, ancho, alto) => {
     initGrafica2(painter);
+    paintGrafica2(painter, valores["oidoIzquierdoTimpanograma"]);
   };
   const drawTimpanoD = (painter, ancho, alto) => {
     initGrafica2(painter);
+    paintGrafica2(painter, valores["oidoDerechoTimpanograma"]);
   };
 
   return (
@@ -250,9 +316,12 @@ function ExamenSangre() {
       <DatosGenerales ficha={true}>
         <ViewCanvas valores={jsonEmulated} />
       </DatosGenerales>
+      
+      
       <DatosGenerales>
         <FichaMedica />
       </DatosGenerales>
+
     </Document>
   );
 }
