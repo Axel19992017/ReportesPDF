@@ -6,6 +6,7 @@ import DatosGenerales from "../Template";
 import FichaMedica from "./FichaMédica";
 import jsonEmulated from "./audiometria.json";
 import Tabla from "../Bactereologia";
+import DataAudiometry from "./DataAudiometry";
 //https://styled-components.com/docs/basics#getting-started
 
 const styles = StyleSheet.create({
@@ -226,10 +227,10 @@ const ViewCanvas = ({ valores }) => {
     let dimension = { x: 40, y: 40 }; // varía (x,y) = (40,20),(20,40),(20,20), (40,40)
     const x = [-500, -400, -200, 0, 200];
     const y = [-0.5, 0.0, 1.0, 1.5];
-    let puntoXPrev = 0, puntoYPrev = 0;
+    let puntoXPrev = 0,
+      puntoYPrev = 0;
     for (let index = 0; index < coords.ejeX.length; index++) {
       let puntoX, puntoY;
-      
 
       if (coords.ejeX[index] <= 0 && coords.ejeY[index] <= 0) {
         dimension = { x: 20, y: 20 };
@@ -237,35 +238,39 @@ const ViewCanvas = ({ valores }) => {
         dimension = { x: 40, y: 20 };
       } else if (coords.ejeX[index] <= -400) {
         dimension = { x: 20, y: 40 };
-      }else{
+      } else {
         dimension = { x: 40, y: 40 };
       }
       // obteniendo coord x del canvas
-     B: for (let i = 0; i < x.length; i++) {
+      B: for (let i = 0; i < x.length; i++) {
         if (coords.ejeX[index] <= x[i]) {
-          if(i === 0){
+          if (i === 0) {
             puntoX = 0;
-          }else{
-            puntoX = (Math.abs(dimension.x * (coords.ejeX[index] - x[i - 1])) / (x[i] - x[i - 1]));
-            puntoX += i > 1 ? 20 + 40 * (i-2): 0;
-           break B;
+          } else {
+            puntoX =
+              Math.abs(dimension.x * (coords.ejeX[index] - x[i - 1])) /
+              (x[i] - x[i - 1]);
+            puntoX += i > 1 ? 20 + 40 * (i - 2) : 0;
+            break B;
           }
         }
       }
       A: for (let i = 0; i < y.length; i++) {
         if (coords.ejeY[index] <= y[i]) {
-          if(i === 0){
-            puntoY = 0
-          }else{
-            puntoY = (Math.abs(dimension.y * (coords.ejeY[index] - y[i - 1])) / (y[i] - y[i - 1]));
-            puntoY += i > 1 ? 20 + 40 * (i-2): 0;
-          break A;
+          if (i === 0) {
+            puntoY = 0;
+          } else {
+            puntoY =
+              Math.abs(dimension.y * (coords.ejeY[index] - y[i - 1])) /
+              (y[i] - y[i - 1]);
+            puntoY += i > 1 ? 20 + 40 * (i - 2) : 0;
+            break A;
           }
         }
       }
-      console.log(dimension)
-      tempPoints.push({ x: puntoX +pointZero.x, y:   pointZero.y- puntoY });
-    } 
+      console.log(dimension);
+      tempPoints.push({ x: puntoX + pointZero.x, y: pointZero.y - puntoY });
+    }
     tempPoints.map((key) => {
       painter.circle(key.x, key.y, 3).fill("black", "#900").stroke();
     });
@@ -313,15 +318,18 @@ const ViewCanvas = ({ valores }) => {
 function ExamenSangre() {
   return (
     <Document title="Examen de Sangre" author="FinLays">
+      <DatosGenerales values={jsonEmulated}>
+        <DataAudiometry values={jsonEmulated.result} />
+      </DatosGenerales>
+   
       <DatosGenerales ficha={true}>
         <ViewCanvas valores={jsonEmulated} />
       </DatosGenerales>
-      
-      
+         {/*}
       <DatosGenerales>
         <FichaMedica />
       </DatosGenerales>
-
+{*/}
     </Document>
   );
 }
