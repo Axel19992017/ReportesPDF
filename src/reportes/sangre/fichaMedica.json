@@ -3,28 +3,28 @@
     "results": 
     
 [
-{"name": "Tabla 1 Dato 1 Izq", "value":  true},
-{"name": "Tabla 1 Dato 1 Der", "value":  true},
-{"name": "Tabla 1 Dato 2 Izq", "value":  true},
-{"name": "Tabla 1 Dato 2 Der", "value":  true},
-{"name": "Tabla 1 Dato 3 Izq", "value":  true},
-{"name": "Tabla 1 Dato 3 Der", "value":  true},
-{"name": "Tabla 1 Dato 4 Izq", "value":  true},
-{"name": "Tabla 1 Dato 4 Der", "value":  true},
-{"name": "Tabla 1 Dato 9 Izq", "value":  true},
-{"name": "Tabla 1 Dato 10 Der", "value":  true},
+{"name": "Tabla 1 Dato 1 Izq.", "value":  true},
+{"name": "Tabla 1 Dato 1 Der.", "value":  false},
+{"name": "Tabla 1 Dato 2 Izq.", "value":  true},
+{"name": "Tabla 1 Dato 2 Der.", "value":  true},
+{"name": "Tabla 1 Dato 3 Izq.", "value":  true},
+{"name": "Tabla 1 Dato 3 Der.", "value":  true},
+{"name": "Tabla 1 Dato 4 Izq.", "value":  true},
+{"name": "Tabla 1 Dato 4 Der.", "value":  true},
+{"name": "Tabla 1 Dato 9 Izq.", "value":  true},
+{"name": "Tabla 1 Dato 10 Der.", "value":  true},
 {"name": "Tabla 1 Dato x", "value":  "lorem ipsum ajsajsjasj"},
 {"name": "Tabla 2 Dato 1", "value":  true},
 {"name": "Tabla 2 Dato 2", "value":  true},
-{"name": "Tabla 2 Dato 3", "value":  true},
+{"name": "Tabla 2 Dato y", "value":  "lorem ipsum x2 jsajsjsasja"},{"name": "Tabla 2 Dato 3", "value":  true},
 {"name": "Tabla 2 Dato 4", "value":  true},
 {"name": "Tabla 2 Dato 5", "value":  true},
-{"name": "Tabla 2 Dato 6", "value":  true},
+{"name": "Tabla 2 Dato 6", "value":  false},
 {"name": "Tabla 2 Dato 7", "value":  true},
 {"name": "Tabla 2 Dato 8", "value":  true},
 {"name": "Tabla 2 Dato 9", "value":  true},
-{"name": "Tabla 2 Dato 10", "value":  true},
-{"name": "Tabla 2 Dato y", "value":  "lorem ipsum x2 jsajsjsasja"}]       
+{"name": "Tabla 2 Dato 10", "value":  true}
+]       
 
 
 

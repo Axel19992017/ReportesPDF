@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { Text, View, StyleSheet } from "@react-pdf/renderer";
 
 
-const styles = StyleSheet.create({
+const stylesC = StyleSheet.create({
   content: {
     margin: 5,
     padding: 5,
@@ -45,8 +45,8 @@ const styles = StyleSheet.create({
 const DataAudiometry = ({ values }) => {
   const Part = ({ children, titulo }) => {
     return (
-      <View style={styles.part}>
-        <Text style={styles.subtitulo}>{titulo}</Text>
+      <View style={stylesC.part}>
+        <Text style={stylesC.subtitulo}>{titulo}</Text>
         {children}
       </View>
     );
@@ -61,7 +61,7 @@ const DataAudiometry = ({ values }) => {
       setItemData(values.filter((e) => e.name === name)[0]);
     }, []);
     return (
-      <View style={styles.fila}>
+      <View style={stylesC.fila}>
       <Text>{itemData.name.padEnd(20, " ")}</Text>
       <Text>{itemData.value ? "SI" : "NO"}</Text>
     </View>
@@ -76,17 +76,17 @@ const DataAudiometry = ({ values }) => {
       setItemData(values.filter((e) => e.name === name)[0]);
     }, []);
     return (
-      <View style={styles.fila}>
+      <View style={stylesC.fila}>
         <Text>{itemData.name.padEnd(15, " ")}</Text>
         <Text>{itemData.value}</Text>
       </View>
     );
   };
   return (
-    <View style={styles.content}>
-      <Text style={styles.titulo}>Ficha Medica</Text>
-      <View style={styles.container}>
-        <View style={styles.columnaI}>
+    <View style={stylesC.content}>
+      <Text style={stylesC.titulo}>Ficha Medica</Text>
+      <View style={stylesC.container}>
+        <View style={stylesC.columnaI}>
           <Part titulo={"Historial Laboral Exposición"}>
             <ItemPart name={"exposicionRuido"} />
             <ItemPart name={"usoMedioProteccion"} />
@@ -105,7 +105,7 @@ const DataAudiometry = ({ values }) => {
             <ItemPart name={"explosiones"} />
           </Part>
         </View>
-        <View style={styles.columnaII}>
+        <View style={stylesC.columnaII}>
           <Part titulo={"Conducta Auditiva Comunicativa"}>
             <ItemPart name={"natacion"} />
             <ItemPart name={"musicaAlta"} />
@@ -122,7 +122,7 @@ const DataAudiometry = ({ values }) => {
           </Part>
         </View>
       </View>
-      <View style={styles.content}>
+      <View style={stylesC.content}>
         <Part titulo={"Otoscopía"}>
           <Text>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem
